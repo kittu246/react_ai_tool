@@ -1,9 +1,12 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import cors from "cors";
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({
-  apiKey: "AIzaSyAxqkxSifVFE6j6x1lONIAFP2Wrp9q-iyY"
+  apiKey: process.env.GEMINI_API_KEY
 });
 
 const app = express();

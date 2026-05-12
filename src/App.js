@@ -12,6 +12,7 @@ function App() {
   const [oldSearch, setOldSearch] = useState("");
   const containerScoll = useRef();
   const [loading, setLoading] = useState(false);
+  const [darkMode,setDarkMode]= useState("dark");
 
   const handleAskQuestion = async () => {
     if (!question && !oldSearch) {
@@ -84,10 +85,31 @@ function App() {
     }
   }, [answer]);
 
+  useEffect(() =>{
+
+  if(darkMode==="dark"){
+    document.documentElement.classList.add("dark")
+
+
+
+  }
+  else{
+    document.documentElement.classList.remove("dark")
+
+  }
+
+  },[darkMode])
+
   return (
-    <div className="bg-zinc-900 h-screen grid grid-cols-5 overflow-hidden">
+   
+    <div className="bg-zinc-900  h-screen grid grid-cols-5 overflow-hidden">
+
+      <select onChange={(e)=>setDarkMode(e.target.value)} className="fixed bottom-0 p-2 border-none bg-transparent dark:text-zinc-200 text-zinc-600">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
       <RecentSearch  setSearchHistory={setSearchHistory} searchHistory={searchHistory} setOldSearch={setOldSearch}/>
-      <div className="col-span-4  bg-zinc-900 h-screen p-7  ">
+      <div className="col-span-4  dark:bg-zinc-900 bg-amber-50 h-screen p-7  ">
         <h1 className="text-3xl bg-clip-text text-center mb-7 text-transparent bg-gradient-to-r from-pink-700 to-violet-700">
           Hello User, Ask me Anything
         </h1>
@@ -111,7 +133,7 @@ function App() {
               ))}
           </ul>
         </div>
-        <div className="w-1/2  m-auto text-white bg-zinc-600 rounded-3xl border border-zinc-500 overflow-hidden z-1 fixed bottom-[2.5%] left-[35%] ">
+        <div className="w-1/2  m-auto dark:text-white text-zinc-500 dark:bg-zinc-600 bg-pink-50 rounded-3xl border dark:border-zinc-500 border-zinc-300 overflow-hidden z-1 fixed bottom-[2.5%] left-[35%] ">
           <input
             type="text"
             onChange={(e) => setQuestion(e.target.value)}
@@ -126,6 +148,8 @@ function App() {
         </div>
       </div>
     </div>
+
+  
   );
 }
 

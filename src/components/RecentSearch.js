@@ -11,8 +11,8 @@ const RecentSearch =({setSearchHistory,searchHistory,setOldSearch})=>{
 
     return (
         <>
-        <div className="col-span-1 bg-zinc-600 overflow-y-auto h-full ">
-                <h2 className="text-xl text-white text-center mt-2 flex justify-around gap-2 items-center">
+        <div className="col-span-1 dark:bg-zinc-600 bg-pink-50 overflow-y-auto h-full ">
+                <h2 className="text-xl dark:text-white text-zinc-700 text-center mt-2 flex justify-around gap-2 items-center">
                   <span> Recent History</span>
                   <MdDelete onClick={handleDeleteHistory} />
                 </h2>
@@ -22,7 +22,7 @@ const RecentSearch =({setSearchHistory,searchHistory,setOldSearch})=>{
                     searchHistory.map((item) => (
                       <li
                         onClick={() => setOldSearch(item)}
-                        className="mt-1 cursor-pointer  px-2 overflow-auto truncate hover:text-zinc-100 text-sm text-zinc-300 "
+                        className="mt-1 cursor-pointer  px-2 overflow-auto truncate hover:dark:text-zinc-100 hover:text-zinc-900 text-sm dark:text-zinc-300 text-zinc-600 "
                       >
                         {item}
                       </li>
