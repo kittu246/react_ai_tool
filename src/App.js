@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState,useCallback } from "react";
 
 import QuestionAnswer from "./components/QuestionAnswer";
 import RecentSearch from "./components/RecentSearch";
@@ -14,7 +14,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [darkMode,setDarkMode]= useState("dark");
 
-  const handleAskQuestion = async () => {
+  const handleAskQuestion = useCallback(async () => {
     if (!question && !oldSearch) {
       return false;
     }
@@ -51,18 +51,18 @@ function App() {
       let cleanData = data.answer.split("* ");
       cleanData = cleanData.map((item) => item.trim());
       // console.log(cleanData);
-      setAnswer([
-        ...answer,
-        { type: "q", text: finalQues },
-        { type: "a", text: cleanData },
-      ]);
+      setAnswer((prev) => [
+  ...prev,
+  { type: "q", text: finalQues },
+  { type: "a", text: cleanData },
+]);
       setQuestion("");
 
       setLoading(false);
     } catch (err) {
       console.log(err);
     }
-  };
+  } , [question, oldSearch]);
 
   const handleEnterPress = (e) => {
     if (e.key === "Enter") {
@@ -71,12 +71,12 @@ function App() {
   };
 
  
-// eslint-disable-next-line react-hooks/exhaustive-deps
+
   useEffect(() => {
     if (oldSearch) {
       handleAskQuestion();
     }
-  }, [oldSearch]);
+  }, [oldSearch,handleAskQuestion]);
 
   useEffect(() => {
     if (containerScoll.current) {

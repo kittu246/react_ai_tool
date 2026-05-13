@@ -12,7 +12,7 @@ const Answers = ({ ans,type, index ,length}) => {
     }else {
     setFinalAns(ans);
   }
-  }, []);
+  }, [ans]);
 
 
   return (
