@@ -115,7 +115,7 @@ function App() {
         </h1>
 
         {loading && (
-          <div className="flex gap-2 justify-center items-center text-zinc-300">
+          <div className="flex gap-2 justify-center items-center text-zinc-300 mb-3">
             <div className="w-3 h-3 bg-zinc-400 rounded-full animate-bounce"></div>
             <div className="w-3 h-3 bg-zinc-400 rounded-full animate-bounce [animation-delay:0.2s]"></div>
             <div className="w-3 h-3 bg-zinc-400 rounded-full animate-bounce [animation-delay:0.4s]"></div>
@@ -124,7 +124,7 @@ function App() {
 
         <div
           ref={containerScoll}
-          className="  overflow-y-auto h-full  text-zinc-300  p-10"
+          className="  overflow-y-auto h-full  dark:text-zinc-300 text-zinc-500  p-10  pb-[100px]"
         >
           <ul>
             {answer &&
@@ -133,7 +133,7 @@ function App() {
               ))}
           </ul>
         </div>
-        <div className="w-1/2  m-auto dark:text-white text-zinc-500 dark:bg-zinc-600 bg-pink-50 rounded-3xl border dark:border-zinc-500 border-zinc-300 overflow-hidden z-1 fixed bottom-[2.5%] left-[35%] ">
+        <div className="w-1/2  m-auto dark:text-white text-zinc-500 dark:bg-zinc-600 bg-pink-50 rounded-3xl border dark:border-zinc-500 border-zinc-300 overflow-hidden z-1 sticky bottom-[2.5%] left-[35%] ">
           <input
             type="text"
             onChange={(e) => setQuestion(e.target.value)}
