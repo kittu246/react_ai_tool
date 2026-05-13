@@ -9,7 +9,9 @@ const Answers = ({ ans,type, index ,length}) => {
     if (checkHeading(ans)) {
       setHeading(true);
       setFinalAns(replaceHeading(ans));
-    }
+    }else {
+    setFinalAns(ans);
+  }
   }, []);
 
 
