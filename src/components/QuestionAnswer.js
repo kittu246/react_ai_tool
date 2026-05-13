@@ -5,7 +5,7 @@ const QuestionAnswer = ({item, index}) => {
     <>
       <div
         key={index + Math.random()}
-        className={item.type == "q" ? "flex justify-end" : ""}
+        className={item.type === "q" ? "flex justify-end" : ""}
       >
         {item.type === "q" ? (
           <li

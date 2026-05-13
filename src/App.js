@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Answers from "./components/Answers";
+
 import QuestionAnswer from "./components/QuestionAnswer";
 import RecentSearch from "./components/RecentSearch";
 
@@ -65,7 +65,7 @@ function App() {
   };
 
   const handleEnterPress = (e) => {
-    if (e.key == "Enter") {
+    if (e.key === "Enter") {
       handleAskQuestion();
     }
   };

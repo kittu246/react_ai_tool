@@ -17,7 +17,7 @@ const Answers = ({ ans,type, index ,length}) => {
     <div>
       {index === 0 && length >1 ? (
         <span className="block py-2 text-lg dark:text-white text-zinc-600 ">{finalAns}</span>
-      ) : heading || type=="q" ? (
+      ) : heading || type==="q" ? (
         <span className="block py-2 text-sm dark:text-white text-zinc-600 ">{finalAns}</span>
       ) : (
         <span className="text-xsm">{finalAns}</span>
